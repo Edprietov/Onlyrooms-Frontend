@@ -2,6 +2,7 @@ import vueRouter from 'vue-router'
 import User from './components/User'
 import UserBalance from './components/UserBalance'
 import RegistrarUsuario from './components/RegistrarUsuario'
+import AutenticarUsuario from './components/AutenticarUsuario' 
 import App from './App'
 
 const router = new vueRouter({
@@ -27,6 +28,11 @@ const router = new vueRouter({
             path: '/registrar-usuario',
             name: "registrar_usuario",
             component: RegistrarUsuario
+        },
+        {
+            path: '/autenticar-usuario',
+            name: "autenticar_usuario",
+            component: AutenticarUsuario
         },
     ]
 })

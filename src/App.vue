@@ -4,8 +4,8 @@
       <h1>OnlyRooms</h1>
       <nav>
         <button v-on:click="init" v-if="is_auth">Inicio</button>
-        <button v-on:click="registrarse" v-if="is_auth">Registrarse</button>
-        <button v-on:click="getBalance" v-if="is_auth">Iniciar Sesión</button>
+        <button v-on:click="registrarse" v-if="is_auth">Registrese</button>
+        <button v-on:click="iniciarSesion" v-if="is_auth">Inicie Sesión</button>
         <button v-if="is_auth">Cerrar Sesión</button>
       </nav>
     </div>
@@ -95,6 +95,15 @@ export default {
         this.$router.push({
           name: "registrar_usuario",
           params: { username: username },
+        });
+      }
+    },
+
+        iniciarSesion: function () {
+      if (this.$route.name != "autenticar_usuario") {
+        let username = localStorage.getItem("current_username");
+        this.$router.push({
+          name: "autenticar_usuario",
         });
       }
     },
