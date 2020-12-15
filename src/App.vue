@@ -6,9 +6,11 @@
         <button v-on:click="init" v-if="is_auth">Inicio</button>
         <button v-on:click="registrarse" v-if="is_auth">Registrese</button>
         <button v-on:click="iniciarSesion" v-if="is_auth">Inicie Sesión</button>
+        <button v-on:click="iniciarSesion" v-if="is_auth">Mis reservas</button>
         <button v-if="is_auth">Cerrar Sesión</button>
       </nav>
     </div>
+
     <div class="main-component">
       <router-view></router-view>
     </div>
@@ -19,16 +21,6 @@
             <img
               src="@/assets/whatsapp.svg"
               alt="whatsapp"
-              height="30"
-              width="30"
-            />
-          </a>
-        </li>
-        <li class="nav-item" id="">
-          <a href="https://facebook.com/" class="mx-2">
-            <img
-              src="@/assets/facebook.svg"
-              alt="facebook"
               height="30"
               width="30"
             />
@@ -73,9 +65,8 @@ export default {
 
   methods: {
     init: function () {
-      if (this.$route.name != "user") {
-        let username = localStorage.getItem("current_username");
-        this.$router.push({ name: "user", params: { username: username } });
+      if (this.$route.name != "inicio") {
+        this.$router.push({ name: "inicio" });
       }
     },
 
@@ -91,15 +82,13 @@ export default {
 
     registrarse: function () {
       if (this.$route.name != "registrar_usuario") {
-        let username = localStorage.getItem("current_username");
         this.$router.push({
           name: "registrar_usuario",
-          params: { username: username },
         });
       }
     },
 
-        iniciarSesion: function () {
+    iniciarSesion: function () {
       if (this.$route.name != "autenticar_usuario") {
         let username = localStorage.getItem("current_username");
         this.$router.push({
@@ -112,8 +101,6 @@ export default {
   beforeCreate: function () {
     localStorage.setItem("current_username", "");
     localStorage.setItem("isAuth", false);
-
-    this.$router.push({ name: "user", params: { username: "camilo24" } });
   },
 };
 </script>

@@ -2,7 +2,8 @@ import vueRouter from 'vue-router'
 import User from './components/User'
 import UserBalance from './components/UserBalance'
 import RegistrarUsuario from './components/RegistrarUsuario'
-import AutenticarUsuario from './components/AutenticarUsuario' 
+import AutenticarUsuario from './components/AutenticarUsuario'
+import Inicio from './components/Inicio'  
 import App from './App'
 
 const router = new vueRouter({
@@ -11,8 +12,8 @@ const router = new vueRouter({
     routes: [
         {
             path: '/',
-            name: "root",
-            component: App
+            name: "inicio",
+            component: Inicio
         },
         {
             path: '/user/:username',
@@ -33,6 +34,11 @@ const router = new vueRouter({
             path: '/autenticar-usuario',
             name: "autenticar_usuario",
             component: AutenticarUsuario
+        },
+        {
+            path: '/inicio',
+            name: "inicio",
+            component: Inicio
         },
     ]
 })
